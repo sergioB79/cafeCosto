@@ -10,9 +10,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="O Café que Nunca Vês Partir">
 <meta property="og:description" content="Ninguém gasta dinheiro em café. Gasta-se 80 cêntimos. Uma vez. É sempre só uma vez — e é aí que está o truque.">
-<meta property="og:image" content="preview.png">
+<meta property="og:image" content="https://sergiob79.github.io/cafeCosto/preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:url" content="https://sergiob79.github.io/cafeCosto/">
 <meta property="og:locale" content="pt_PT">
 <meta property="article:author" content="S. Batalha">
 
@@ -20,7 +21,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="O Café que Nunca Vês Partir">
 <meta name="twitter:description" content="Ninguém gasta dinheiro em café. Gasta-se 80 cêntimos. Uma vez. É sempre só uma vez — e é aí que está o truque.">
-<meta name="twitter:image" content="preview.png">
+<meta name="twitter:image" content="https://sergiob79.github.io/cafeCosto/preview.png">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -413,6 +414,66 @@
     <div class="cta-sub">Configura os teus hábitos reais — quantos cafés, onde, a que preço.<br>Vê o que isso significa ao longo de 1 a 10 anos.</div>
     <a class="cta-btn" href="cafe-custos.html">Abrir a calculadora →</a>
   </div>
+
+  <!-- SHARE -->
+  <div style="text-align:center; margin: 0 0 2rem;">
+    <div style="font-size:0.58rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); margin-bottom:1rem;">Partilhar</div>
+    <div style="display:flex; justify-content:center; gap:0.6rem; flex-wrap:wrap;">
+      <a id="share-fb" href="#" target="_blank" rel="noopener"
+        style="display:inline-block; background:var(--ink); color:var(--bg); text-decoration:none;
+               font-family:'DM Mono',monospace; font-size:0.6rem; letter-spacing:0.12em;
+               text-transform:uppercase; padding:0.65rem 1.2rem; border:1px solid var(--rule);
+               transition:background 0.15s;">
+        Facebook
+      </a>
+      <a id="share-wa" href="#" target="_blank" rel="noopener"
+        style="display:inline-block; background:var(--ink); color:var(--bg); text-decoration:none;
+               font-family:'DM Mono',monospace; font-size:0.6rem; letter-spacing:0.12em;
+               text-transform:uppercase; padding:0.65rem 1.2rem; border:1px solid var(--rule);
+               transition:background 0.15s;">
+        WhatsApp
+      </a>
+      <a id="share-tw" href="#" target="_blank" rel="noopener"
+        style="display:inline-block; background:var(--ink); color:var(--bg); text-decoration:none;
+               font-family:'DM Mono',monospace; font-size:0.6rem; letter-spacing:0.12em;
+               text-transform:uppercase; padding:0.65rem 1.2rem; border:1px solid var(--rule);
+               transition:background 0.15s;">
+        X / Twitter
+      </a>
+      <a id="share-copy" href="#"
+        style="display:inline-block; background:var(--ink); color:var(--bg); text-decoration:none;
+               font-family:'DM Mono',monospace; font-size:0.6rem; letter-spacing:0.12em;
+               text-transform:uppercase; padding:0.65rem 1.2rem; border:1px solid var(--rule);
+               transition:background 0.15s;">
+        Copiar link
+      </a>
+    </div>
+  </div>
+  <script>
+    (function() {
+      const url   = 'https://sergiob79.github.io/cafeCosto/';
+      const texto = 'Sabes quanto gastas em café por ano? Calculadora gratuita — introduz os teus hábitos reais e vê o número.';
+
+      document.getElementById('share-fb').href =
+        'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+
+      document.getElementById('share-wa').href =
+        'https://wa.me/?text=' + encodeURIComponent(texto + ' ' + url);
+
+      document.getElementById('share-tw').href =
+        'https://twitter.com/intent/tweet?text=' + encodeURIComponent(texto) + '&url=' + encodeURIComponent(url);
+
+      document.getElementById('share-copy').addEventListener('click', function(e) {
+        e.preventDefault();
+        navigator.clipboard.writeText(url).then(function() {
+          const btn = document.getElementById('share-copy');
+          const orig = btn.textContent;
+          btn.textContent = 'Copiado ✓';
+          setTimeout(function() { btn.textContent = orig; }, 2000);
+        });
+      });
+    })();
+  </script>
 
   <footer>
     Todos os valores são estimativas baseadas em hábitos médios e inflação histórica.<br>
