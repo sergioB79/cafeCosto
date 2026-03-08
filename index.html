@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Café que Nunca Vês Partir — S. Batalha</title>
+<meta name="description" content="Ninguém gasta dinheiro em café. Gasta-se 80 cêntimos. Uma vez. É sempre só uma vez — e é aí que está o truque.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="O Café que Nunca Vês Partir">
+<meta property="og:description" content="Ninguém gasta dinheiro em café. Gasta-se 80 cêntimos. Uma vez. É sempre só uma vez — e é aí que está o truque.">
+<meta property="og:image" content="preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_PT">
+<meta property="article:author" content="S. Batalha">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="O Café que Nunca Vês Partir">
+<meta name="twitter:description" content="Ninguém gasta dinheiro em café. Gasta-se 80 cêntimos. Uma vez. É sempre só uma vez — e é aí que está o truque.">
+<meta name="twitter:image" content="preview.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f0e8;
+    --ink: #1a1510;
+    --muted: #7a6e5e;
+    --accent: #b8460a;
+    --gold: #c8922a;
+    --rule: #d4c8b4;
+    --card: #ede8df;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* grain overlay */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.5;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative; z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  header {
+    border-bottom: 3px double var(--rule);
+    padding: 3rem 0 1.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  .kicker {
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 0.8rem;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .dateline {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 1rem;
+  }
+  .byline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
+  }
+
+  /* ── PULL QUOTE HERO ── */
+  .hero-stat {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 2.5rem 2rem;
+    margin: 0 0 3rem;
+    text-align: center;
+    position: relative;
+  }
+  .hero-stat::before, .hero-stat::after {
+    content: '';
+    position: absolute;
+    left: 1rem; right: 1rem;
+    height: 1px;
+    background: var(--gold);
+  }
+  .hero-stat::before { top: 0.6rem; }
+  .hero-stat::after  { bottom: 0.6rem; }
+  .hero-num {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 10vw, 6rem);
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .hero-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #b0a898;
+    margin-top: 0.5rem;
+  }
+  .hero-sub {
+    font-size: 0.72rem;
+    color: #8a7e70;
+    margin-top: 0.8rem;
+  }
+
+  /* ── BODY TEXT ── */
+  .lede {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: var(--ink);
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+  p {
+    font-size: 0.82rem;
+    line-height: 1.85;
+    color: #2e2820;
+    margin-bottom: 1.4rem;
+  }
+
+  /* ── PULL QUOTE ── */
+  blockquote {
+    border-left: 4px solid var(--accent);
+    padding: 0.3rem 0 0.3rem 1.4rem;
+    margin: 2rem 0;
+  }
+  blockquote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--accent);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* ── RULE ── */
+  hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 2.5rem 0;
+  }
+  .section-head {
+    font-size: 0.58rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .section-head::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* ── STATS GRID ── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 2rem 0;
+  }
+  @media(max-width:520px) { .stats { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: var(--bg);
+    padding: 1.2rem 1rem;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .stat-desc {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.4rem;
+    line-height: 1.4;
+  }
+
+  /* ── FACTS LIST ── */
+  .facts {
+    list-style: none;
+    margin: 1.5rem 0 2rem;
+  }
+  .facts li {
+    display: flex;
+    gap: 1rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: #2e2820;
+    align-items: flex-start;
+  }
+  .facts li:first-child { border-top: 1px solid var(--rule); }
+  .fact-marker {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    flex-shrink: 0;
+    width: 1.4rem;
+    text-align: center;
+    margin-top: 0.1rem;
+  }
+
+  /* ── CTA ── */
+  .cta-block {
+    background: var(--ink);
+    padding: 2.5rem 2rem;
+    margin: 3rem 0;
+    text-align: center;
+    position: relative;
+  }
+  .cta-block::before {
+    content: '☕';
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    filter: grayscale(1) brightness(0.7);
+  }
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--bg);
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+  .cta-sub {
+    font-size: 0.72rem;
+    color: #8a7e70;
+    margin-bottom: 1.8rem;
+    line-height: 1.6;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.9rem 2.2rem;
+    transition: background 0.15s;
+    cursor: pointer;
+    border: none;
+    font-family: 'DM Mono', monospace;
+  }
+  .cta-btn:hover { background: #9a3408; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 3px double var(--rule);
+    padding: 1.5rem 0 3rem;
+    text-align: center;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade { opacity: 0; animation: fadeUp 0.6s ease forwards; }
+  .fade:nth-child(1) { animation-delay: 0.1s; }
+  .fade:nth-child(2) { animation-delay: 0.25s; }
+  .fade:nth-child(3) { animation-delay: 0.4s; }
+  .fade:nth-child(4) { animation-delay: 0.55s; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <div class="kicker">Análise · Hábitos &amp; Dinheiro</div>
+    <h1>O Café que<br><em>Nunca Vês</em> Partir</h1>
+    <div class="dateline">Uma chávena de cada vez — durante anos</div>
+    <div class="byline">por S. Batalha</div>
+  </header>
+
+  <div class="hero-stat fade">
+    <div class="hero-num">€ 3.285</div>
+    <div class="hero-label">custo estimado em 10 anos · 3 cafés/dia a 0,90 €</div>
+    <div class="hero-sub">com inflação de 3%/ano — e sem contar com o que não se mede</div>
+  </div>
+
+  <p class="lede fade">Ninguém gasta dinheiro em café. Gasta-se 80 cêntimos. Uma vez. É sempre só uma vez — e é aí que está o truque.</p>
+
+  <p class="fade">O café é provavelmente o único vício que a sociedade não só aceita como <em>celebra</em>. É o ritual da manhã, o pretexto da pausa, o símbolo da sociabilidade adulta. Por isso nunca aparece no orçamento. Por isso nunca é questionado. É invisível — até deixar de ser.</p>
+
+  <blockquote class="fade">
+    <p>"Não é o preço do café que surpreende. É o número de anos vezes o número de chávenas vezes a inflação que ninguém calcula."</p>
+  </blockquote>
+
+  <hr>
+  <div class="section-head">Em números</div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">3–4×</div>
+      <div class="stat-desc">cafés/dia consumidos em média por adulto português</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">+40%</div>
+      <div class="stat-desc">subida do preço médio do café em Portugal na última década</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">€ 0</div>
+      <div class="stat-desc">valor que a maioria das pessoas atribui a este hábito no orçamento mensal</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">90%</div>
+      <div class="stat-desc">da cafeína é absorvida em 45 minutos — o efeito dura 3 a 5 horas</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">14 dias</div>
+      <div class="stat-desc">tempo médio para eliminar dependência física de cafeína</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">€ 320+</div>
+      <div class="stat-desc">poupança anual possível trocando cafés fora por cápsulas em casa</div>
+    </div>
+  </div>
+
+  <hr>
+  <div class="section-head">O que ninguém te conta</div>
+
+  <ul class="facts">
+    <li>
+      <span class="fact-marker">①</span>
+      <span><strong>A inflação é composta.</strong> O café que hoje custa 0,80 € custava 0,55 € há dez anos. Não é um aumento linear — é um ritmo que se acelera. Em 2035, o preço médio pode facilmente ultrapassar 1,20 €.</span>
+    </li>
+    <li>
+      <span class="fact-marker">②</span>
+      <span><strong>Cápsulas vs. balcão.</strong> Uma cápsula de qualidade custa entre 0,25 € e 0,45 €. O mesmo café num café custará 3× a 5× mais. A diferença não é a qualidade — é o espaço, o serviço, o ritual. Sabes o que pagas por isso?</span>
+    </li>
+    <li>
+      <span class="fact-marker">③</span>
+      <span><strong>A cafeína não te acorda.</strong> Bloqueia os receptores de adenosina — a molécula que sinaliza o cansaço. Não cria energia; atrasa a percepção da falta dela. O crash que sentes a seguir é a adenosina acumulada a chegar de uma vez.</span>
+    </li>
+    <li>
+      <span class="fact-marker">④</span>
+      <span><strong>A tolerância aumenta silenciosamente.</strong> Com o tempo, precisas de mais para o mesmo efeito. O que começou como prazer torna-se manutenção — bebes para não te sentires mal sem ele.</span>
+    </li>
+    <li>
+      <span class="fact-marker">⑤</span>
+      <span><strong>O custo real inclui o tempo.</strong> Uma ida ao café demora em média 8 a 15 minutos. Três vezes por dia, cinco dias por semana: são quase 200 horas por ano. Invisíveis, mas reais.</span>
+    </li>
+  </ul>
+
+  <hr>
+  <div class="section-head">Não é sobre parar</div>
+
+  <p>Isto não é um manifesto anti-café. É um convite a fazer as contas — e a decidir com informação. Talvez o resultado seja manter tudo igual, com a consciência de que é uma escolha deliberada e não um hábito automático.</p>
+
+  <p>Ou talvez descubras que dois cafés em vez de quatro, feitos em casa em vez de num balcão, mudam pouco na qualidade do dia — e muito na coluna do lado direito ao fim de dez anos.</p>
+
+  <blockquote>
+    <p>"A liberdade começa quando sabes exactamente o que estás a pagar — e decides mesmo assim."</p>
+  </blockquote>
+
+  <div class="cta-block">
+    <div class="cta-title">Faz as tuas contas.<br>Ao cêntimo. Por ano.</div>
+    <div class="cta-sub">Configura os teus hábitos reais — quantos cafés, onde, a que preço.<br>Vê o que isso significa ao longo de 1 a 10 anos.</div>
+    <a class="cta-btn" href="cafe-custos.html">Abrir a calculadora →</a>
+  </div>
+
+  <footer>
+    Todos os valores são estimativas baseadas em hábitos médios e inflação histórica.<br>
+    Os resultados dependem das variáveis que introduzires.<br><br>
+    © S. Batalha — todos os direitos reservados
+    <div style="margin-top:1.2rem; opacity:0.45; font-size:0.55rem; letter-spacing:0.1em;">
+      <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fsbatalha.github.io%2Fcafe-intro.html&count_bg=%23c8922a&title_bg=%231a1510&icon=&icon_color=%23e0d8cc&title=visitas&edge_flat=true"
+           alt="visitas" style="height:16px; vertical-align:middle; opacity:0.7;">
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
