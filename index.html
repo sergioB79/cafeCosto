@@ -483,10 +483,10 @@
       <span id="visit-counter"></span>
     </div>
     <script>
-      fetch('https://api.countapi.xyz/hit/sergiob79.github.io/cafeCosto')
+      fetch('https://api.counterapi.dev/v1/sergiob79-cafecosto/visits/up')
         .then(r => r.json())
         .then(data => {
-          const total = data.value + 77; // offset para começar em 78
+          const total = (data.count || 0) + 77;
           document.getElementById('visit-counter').textContent = total + ' visitas';
         })
         .catch(() => {});
