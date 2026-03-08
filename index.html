@@ -483,14 +483,13 @@
       <span id="visit-counter"></span>
     </div>
     <script>
-      (function() {
-        const OFFSET = 78;
-        const key = 'cafe_visits';
-        let count = parseInt(localStorage.getItem(key) || '0') + 1;
-        localStorage.setItem(key, count);
-        const total = count + OFFSET;
-        document.getElementById('visit-counter').textContent = total + ' visitas';
-      })();
+      fetch('https://api.countapi.xyz/hit/sergiob79.github.io/cafeCosto')
+        .then(r => r.json())
+        .then(data => {
+          const total = data.value + 77; // offset para começar em 78
+          document.getElementById('visit-counter').textContent = total + ' visitas';
+        })
+        .catch(() => {});
     </script>
   </footer>
 
