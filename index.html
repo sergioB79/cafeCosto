@@ -418,10 +418,19 @@
     Todos os valores são estimativas baseadas em hábitos médios e inflação histórica.<br>
     Os resultados dependem das variáveis que introduzires.<br><br>
     © S. Batalha — todos os direitos reservados
-    <div style="margin-top:1.2rem; opacity:0.45; font-size:0.55rem; letter-spacing:0.1em;">
-      <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fsergiob79.github.io%2FcafeCosto%2F&count_bg=%23c8922a&title_bg=%231a1510&icon=&icon_color=%23e0d8cc&title=visitas&edge_flat=true"
-           alt="visitas" style="height:16px; vertical-align:middle; opacity:0.7;">
+    <div style="margin-top:1.2rem; opacity:0.5; font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted);">
+      <span id="visit-counter"></span>
     </div>
+    <script>
+      (function() {
+        const OFFSET = 78;
+        const key = 'cafe_visits';
+        let count = parseInt(localStorage.getItem(key) || '0') + 1;
+        localStorage.setItem(key, count);
+        const total = count + OFFSET;
+        document.getElementById('visit-counter').textContent = total + ' visitas';
+      })();
+    </script>
   </footer>
 
 </div>
